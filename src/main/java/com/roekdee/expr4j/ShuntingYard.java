@@ -92,6 +92,8 @@ public final class ShuntingYard {
                         StackItem fn = operators.pop();
                         ArgFrame frame = argFrames.pop();
                         output.add(new RpnToken.Call(fn.functionName(), frame.argCount()));
+                        // The call's result is itself an operand of any enclosing call.
+                        markNonEmpty(argFrames);
                     }
                     expectOperand = false;
                 }
