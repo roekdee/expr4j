@@ -197,7 +197,7 @@ class ExpressionTest {
         @Test
         void nullVariableMapRejected() {
             Expression e = Expression.compile("1+1");
-            assertThrows(ExpressionException.class, () -> e.evaluate(null));
+            assertThrows(ExpressionException.class, () -> e.evaluate((Map<String, Double>) null));
         }
     }
 }
